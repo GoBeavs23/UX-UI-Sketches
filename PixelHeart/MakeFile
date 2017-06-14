@@ -1,0 +1,22 @@
+CC=g++
+CFLAGS = -c -Wall -Werror
+
+all: test
+
+test: main.o Ant.o Board.o menu.o
+	${CC} main.o Ant.o Board.o menu.o -o test
+
+main.o: main.cpp
+	${CC} ${CFLAGS} main.cpp
+
+Ant.o: Ant.cpp Ant.h
+	${CC} ${CFLAGS} Ant.cpp
+
+Board.o: Board.cpp Board.h
+	${CC} ${CFLAGS} Board.cpp
+
+menu.o: menu.cpp menu.h
+	${CC} ${CFLAGS} menu.cpp
+
+clean: 
+		rm -rf *o test
